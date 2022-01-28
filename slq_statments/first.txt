@@ -1,0 +1,9 @@
+create extension dblink;
+
+SELECT dblink_connect('thor','host=172.21.76.138 port=5432 dbname=postgres user=dev password=R3dDin0*88');
+
+
+SELECT * into test FROM dblink('thor', 'select * from messages where 1 = 2')
+AS t(id int, email text, sent_at timestamptz, subject text, headers text, body text);
+
+
